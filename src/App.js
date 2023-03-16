@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import TestLoginForm from './LoginForm';
+import NavbarMenu from './Navbar';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+
+
+
+
+
+export default class App extends React.Component{
+
+  constructor(props){
+    super(props);
+    this.state = {clicks: 0};
+  }
+
+  componentDidMount = () => {
+    console.log('app component mounted');
+    this.setState({clicks: 5});
+  }
+
+  addClick = () => {
+    var newNumber = this.state.clicks + 1;
+    this.setState({clicks: newNumber});
+  }
+
+  render() {
+    //console.log(this.state);
+    return (
+    <div >
+      <div className='container'>
+      <NavbarMenu/>
+      </div>
+      <br/>
+      <br/>
+      <br/>
+      
+     <div className='container'>
+      <TestLoginForm/>
+      </div>
+      
+   
+     
+      <br/>
+      
+      
     </div>
   );
 }
-
-export default App;
+}
